@@ -1,0 +1,435 @@
+{
+    "address": "AhBYoXf67Qnpt6rmsmQnTNCRZW5EXc7HCyfq6Eguq8L",
+    "metadata": {
+      "name": "crypto_task_capstone",
+      "version": "0.1.0",
+      "spec": "0.1.0",
+      "description": "Created with Anchor"
+    },
+    "instructions": [
+      {
+        "name": "close",
+        "discriminator": [
+          98,
+          165,
+          201,
+          177,
+          108,
+          65,
+          206,
+          96
+        ],
+        "accounts": [
+          {
+            "name": "user",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "escrow_vault",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "escrow",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow.maker",
+                  "account": "Escrow"
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow.seed",
+                  "account": "Escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "keyword",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "deposit",
+        "discriminator": [
+          242,
+          35,
+          198,
+          137,
+          82,
+          225,
+          242,
+          182
+        ],
+        "accounts": [
+          {
+            "name": "user",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "escrow_vault",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "escrow",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow.maker",
+                  "account": "Escrow"
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow.seed",
+                  "account": "Escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "initialize",
+        "discriminator": [
+          175,
+          175,
+          109,
+          31,
+          13,
+          152,
+          155,
+          237
+        ],
+        "accounts": [
+          {
+            "name": "user",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "escrow",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "user"
+                },
+                {
+                  "kind": "arg",
+                  "path": "seed"
+                }
+              ]
+            }
+          },
+          {
+            "name": "escrow_vault",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "seed",
+            "type": "u64"
+          },
+          {
+            "name": "hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "withdraw",
+        "discriminator": [
+          183,
+          18,
+          70,
+          156,
+          148,
+          109,
+          161,
+          34
+        ],
+        "accounts": [
+          {
+            "name": "user",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "escrow_vault",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "escrow",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    101,
+                    115,
+                    99,
+                    114,
+                    111,
+                    119
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow.maker",
+                  "account": "Escrow"
+                },
+                {
+                  "kind": "account",
+                  "path": "escrow.seed",
+                  "account": "Escrow"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "keyword",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "accounts": [
+      {
+        "name": "Escrow",
+        "discriminator": [
+          31,
+          213,
+          123,
+          187,
+          186,
+          22,
+          218,
+          155
+        ]
+      }
+    ],
+    "errors": [
+      {
+        "code": 6000,
+        "name": "InvalidKeyword",
+        "msg": "The provided keyword does not match the stored hash."
+      }
+    ],
+    "types": [
+      {
+        "name": "Escrow",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "seed",
+              "type": "u64"
+            },
+            {
+              "name": "hash",
+              "type": {
+                "array": [
+                  "u8",
+                  32
+                ]
+              }
+            },
+            {
+              "name": "maker",
+              "type": "pubkey"
+            },
+            {
+              "name": "amount",
+              "type": "u64"
+            },
+            {
+              "name": "escrow_bump",
+              "type": "u8"
+            },
+            {
+              "name": "vault_bump",
+              "type": "u8"
+            }
+          ]
+        }
+      }
+    ]
+  }

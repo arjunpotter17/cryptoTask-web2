@@ -1,0 +1,8 @@
+.button{
+    background-color: "#E06600";
+    font-family: "Space Grotesk Light", sans-serif;
+}
+
+.button:hover{
+    background-color: '#A04000';
+}
